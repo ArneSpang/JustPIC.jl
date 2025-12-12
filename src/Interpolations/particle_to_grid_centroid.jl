@@ -13,7 +13,7 @@ function particle2centroid!(F, Fp, xci::NTuple, particles::Particles, di)
 end
 
 @parallel_indices (I...) function _particle2centroid!(F, Fp, xci, coords, di)
-    _particle2centroid!(F, Fp, I..., xci, coords, @dxi(di, I...))
+    _particle2centroid!(F, Fp, I..., xci, coords, @dxi(di, I...)./2.0)
     return nothing
 end
 
